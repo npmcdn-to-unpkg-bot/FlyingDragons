@@ -1,0 +1,150 @@
+
+<h2>Admin </h2>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h3>{{admin.username}}</h3>
+    </div>
+    
+    <div class="col-sm-4">
+        <h4>Ingrese Vuelo</h4>
+        <form ng-submit="agregarNuevoVuelo()">
+            
+            <div class="form-group">
+                <label for="codigoVuelo">Codigo Vuelo</label>
+                <input ng-model="nuevoVuelo.codigoVuelo" type="text" class="form-control" ng-Bind="nuevoVuelo.codigoVuelo" ng-mouseleave="generarCodigo()" id="codigo" placeholder="Ingresa un Codigo" >
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Fecha de Salida</label>
+                <input ng-model="nuevoVuelo.fechaSalidaVuelo" ng-mouseleave="generarCodigo()" ng-mouseenter="fechaMinLlegada()" type="Date" class="form-control" id="idnombre" min="{{minDate | date:'yyyy-MM-dd'}}" placeholder="Ingresa una Fecha de Salida" >
+            </div>
+            
+            <div class="form-group">
+                <label for="idnombre">Fecha de Llegada</label>
+                <input ng-model="nuevoVuelo.fechaLlegadaVuelo" type="Date" class="form-control" id="idnombre" min="{{minLlegadaDate | date:'yyyy-MM-dd'}}" placeholder="Ingresa una Fecha de Llegada" >
+            </div>
+            <!--<div class="form-group">
+                <label for="idnombre">Ciudad Origen</label>
+                <input ng-model="nuevoVuelo.origenVuelo" type="text" class="form-control" id="idnombre" placeholder="Ingresa una Ciudad de origen">
+            </div>-->
+ 			<label for="lugOrigen">Lugar de Origen</label>
+  				<select name="lugOrigen" id="lugOrigen" ng-mouseleave="generarCodigo();fijarEscala();" ng-model="nuevoVuelo.origenVuelo" ng-change="cambiarDestino()" class="form-control">
+    				
+    				<option ng-repeat="ciudad in listaCiudadesOrigen" value="{{ciudad.codigo}}">{{ciudad.ciudad}}</option>
+    				
+  				</select>
+			<!--
+            <div class="form-group">
+                <label for="idnombre">Ciudad Destino</label>
+                <input ng-model="nuevoVuelo.destinoVuelo" type="text" class="form-control" id="idnombre" placeholder="Ingresa una Ciudad de destino">
+            </div>-->
+  			<label for="lugDestino">Lugar de Destino</label>
+  				<select name="lugDestino" id="lugDestino" ng-model="nuevoVuelo.destinoVuelo" class="form-control">
+    				<option ng-repeat="ciudad in listaCiudadesDestino" value="{{ciudad.codigo}}">{{ciudad.ciudad}}</option>
+  				</select>
+  				<script>selectInCombo('lugDestino','option2')</script>
+            <div class="form-group">
+                <label for="idnombre">Escalas</label>
+                <input ng-model="nuevoVuelo.escalasVuelo" type="text" class="form-control" id="idnombre" ng-Bind="nuevoVuelo.escalasVuelo" placeholder="Ingresa las Escalas" >
+            </div>
+            <!--
+            <div class="form-group">
+                <label for="idnombre">Estado</label>
+                <input ng-model="nuevoVuelo.estadoVuelo" type="text" class="form-control" id="idnombre" placeholder="Ingresa el Estado" >
+            </div>-->
+  			<label for="estado">Estado</label>
+  				<select name="estado" id="idnombre" ng-model="nuevoVuelo.estadoVuelo" class="form-control">
+    				
+    				<option ng-repeat="estado in listaEstado" value="{{estado.codigo}}">{{estado.estado}}</option>
+  				</select>
+            <button type="submit" class="btn btn-success">Agregar Vuelo</button>
+        </form>
+    </div>
+    
+<div ng-repeat="variableVuelo in vuelo">
+    <!--<div class="col-sm-6" ng-init="variableVuelo.visible=false">-->
+    <!--<div class="col-sm-6" ng-init="variableVuelo.visible=false">-->
+    <div ng-init="variableVuelo.visible=false">
+        <table style="width:80%">
+        <tr>
+            <td> </td>
+            <td>Id</td>
+            <td>Codigo Vuelo</td>
+            <td>Fecha Salida de Vuelo</td> 
+            <td>Fecha Llegada de Vuelo</td>
+            <td>Ciudad Origen</td>
+            <td>Ciudad Destino</td>
+            <td>Escalas Vuelo</td>
+            <td>Estado Vuelo</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td>{{$index+1}}</td>
+            <td>{{variableVuelo.codigoVuelo}}</td>
+            <td>{{variableVuelo.fechaSalidaVuelo}}</td> 
+            <td>{{variableVuelo.fechaLlegadaVuelo}}</td>
+            <td>{{variableVuelo.origenVuelo}}</td>
+            <td>{{variableVuelo.destinoVuelo}}</td>
+            <td>{{variableVuelo.escalasVuelo}}</td>
+            <td>{{variableVuelo.estadoVuelo}}</td>
+        </tr>
+        </table>
+        
+        
+       <!-- <p>{{$index+1}}</p>
+        <p>{{variableVuelo.codigoVuelo}} | {{variableVuelo.fechaSalidaVuelo}} | {{variableVuelo.fechaLlegadaVuelo}} | {{variableVuelo.origenVuelo}} | {{variableVuelo.destinoVuelo}} | {{variableVuelo.escalasVuelo}} | {{variableVuelo.estadoVuelo}}<p>-->
+    
+        
+    </div>
+    <a href="#/editar/{{variableVuelo.id}}" class="btn btn-primary">Editar #/editar/{{variableVuelo.id}}</a>
+    <!--<button ng-click="variableVuelo.visible=!variableVuelo.visible" class="btn btn-primary">Editar Vuelo</button>-->
+    <!--<br> 
+    <form ng-show="variableVuelo.visible" ng-submit="editarVuelo(variableVuelo, $index)">  
+        <div class="col-sm-4">
+        <h4>Editar Vuelo</h4>
+        <div class="form-group"> 
+                <label for="codigoVuelo">Codigo Vuelo</label>
+                <input ng-model="editoVuelo.codigoVuelo" type="text" class="form-control" ng-Bind="editoVuelo.codigoVuelo" ng-mouseleave="generarCodigo()" id="codigo" placeholder="Ingresa un Codigo" >
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Fecha de Salida</label>
+                <input ng-model="editoVuelo.fechaSalidaVuelo" ng-mouseleave="generarCodigo()" ng-mouseenter="fechaMinLlegada()" type="Date" class="form-control" id="idnombre" min="{{minDate | date:'yyyy-MM-dd'}}" placeholder="Ingresa una Fecha de Salida" >
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Fecha de Llegada</label>
+                <input ng-model="editoVuelo.fechaLlegadaVuelo" type="Date" class="form-control" id="idnombre" min="{{minLlegadaDate | date:'yyyy-MM-dd'}}" placeholder="Ingresa una Fecha de Llegada" >
+            </div>
+            
+ 			<label for="lugOrigen">Lugar de Origen</label>
+  				<select name="lugOrigen" id="lugOrigen" ng-mouseleave="generarCodigo()" ng-model="editoVuelo.origenVuelo" ng-change="cambiarDestino()" class="form-control">
+    				
+    				<option ng-repeat="ciudad in listaCiudadesOrigen" value="{{ciudad.codigo}}">{{ciudad.ciudad}}</option>
+    				
+  				</select>
+  			<label for="lugDestino">Lugar de Destino</label>
+  				<select name="lugDestino" id="lugDestino" ng-model="editoVuelo.destinoVuelo" class="form-control">
+    				<option ng-repeat="ciudad in listaCiudadesDestino" value="{{ciudad.codigo}}">{{ciudad.ciudad}}</option>
+  				</select>
+  				<script>selectInCombo('lugDestino','option2')</script>
+            <div class="form-group">
+                <label for="idnombre">Escalas</label>
+                <input ng-model="editoVuelo.escalasVuelo" type="text" class="form-control" id="idnombre" placeholder="Ingresa las Escalas" >
+            </div>
+  			<label for="estado">Estado</label>
+  				<select name="estado" id="idnombre" ng-model="editoVuelo.estadoVuelo" class="form-control">
+    				
+    				<option ng-repeat="estado in listaEstado" value="{{estado.codigo}}">{{estado.estado}}</option>
+  				</select>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        
+    </form>-->
+        
+    
+    
+          
+</div>    
+    
+</div>
+
+
+

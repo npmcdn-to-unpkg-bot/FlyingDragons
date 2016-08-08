@@ -1,0 +1,125 @@
+<h3>ReservaAux</h3>
+<h3>{{ReservaAux.id}}</h3>
+
+<table style="width:80%">
+					        <tr>
+					            <td> </td>
+					            <td>Fecha Salida de Vuelo</td> 
+					            <td>Fecha Llegada de Vuelo</td>
+					            <td>Ciudad Origen</td>
+					            <td>Ciudad Destino</td>
+					            <td>Cantidad de Personas</td>
+					            <td>Tipo de Reserva</td>
+					            <td>Cantidad de Adultos</td>
+					            <td>Cantidad de Niños</td>
+					            <td>Cantidad de Bebes</td>
+					            <td>Código Vuelo Ida</td>
+					            <td>Código Vuelo Vuelta</td>
+					            
+					        </tr>
+					        <tr>
+					            <td> </td>
+					            <td ng-model="reservaVueloAux.fechaSalidaVueloIda">{{ReservaAux.fechaSalidaVueloIda}}</td> 
+					            <td ng-model="reservaVueloAux.fechaSalidaVueloVuelta">{{ReservaAux.fechaSalidaVueloVuelta}}</td>
+					            <td ng-model="reservaVueloAux.ciudadOrigenReserva">{{ReservaAux.ciudadOrigenReserva}}</td>
+					            <td ng-model="reservaVueloAux.ciudadDestinoReserva">{{ReservaAux.ciudadDestinoReserva}}</td>
+					            <td ng-model="reservaVueloAux.cantidadPersonas">{{ReservaAux.cantidadPersonas}}</td>
+					            <td ng-model="reservaVueloAux.tipoReserva">{{ReservaAux.tipoReserva}}</td>
+					            <td ng-model="reservaVueloAux.cantidadAdultos">{{ReservaAux.cantidadAdultos}}</td>
+					            <td ng-model="reservaVueloAux.cantidadNinios">{{ReservaAux.cantidadNinios}}</td>
+					            <td ng-model="reservaVueloAux.cantidadBebes">{{ReservaAux.cantidadBebes}}</td>
+					            <td ng-model="reservaVueloAux.codigoVueloIda">{{ReservaAux.codigoVueloIda}}</td>
+					            <td ng-model="reservaVueloAux.codigoVueloVuelta">{{ReservaAux.codigoVueloVuelta}}</td>
+					        </tr>
+					        </table>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 ng-mouseleave="obtenerCantidadAdultos()">Ingresar datos de las personas</h1>
+			<div class="row" id='vuelosEncontrados'>
+				<h2>Ingreso de datos de Adultos</h2> 
+				<div ng-repeat="i in getNumber(number) track by $index">
+					<h3 class="col-md-6">Adulto</h3>
+            			<form class="col-md-6" role="form">
+            				<div class="form-group">
+            					<label for="nombre">Nombre</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="apellido">Apellido</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="pasaporte">Pasaporte</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="origenPasaporte">Origen del pasaporte</label>
+            					<input type="text" class="form-control">
+            				</div>
+            			</form>
+            			<button type="submit" class="btn btn-success">Ingresar adulto</button>
+				</div>
+			</div>
+			<div class="row" id='vuelosEncontrados'>
+				<h2>Ingreso de datos de Niños</h2> 
+				<div ng-repeat="i in getNumber(number) track by $index">
+					<h3 class="col-md-6">Niño</h3>
+            			<form class="col-md-6" role="form">
+            				<div class="form-group">
+            					<label for="nombre">Nombre</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="apellido">Apellido</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="pasaporte">Pasaporte</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="origenPasaporte">Origen del pasaporte</label>
+            					<input type="text" class="form-control">
+            				</div>
+            			</form>
+            			<button type="submit" class="btn btn-success">Ingresar adulto</button>
+				</div>
+			</div>
+			<div class="row" id='vuelosEncontrados'>
+				<h2>Ingreso de datos de Bebes</h2> 
+				<div ng-repeat="i in getNumber(number) track by $index">
+					<h3 class="col-md-6">Bebe</h3>
+            			<form class="col-md-6" role="form">
+            				<div class="form-group">
+            					<label for="nombre">Nombre</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="apellido">Apellido</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="pasaporte">Pasaporte</label>
+            					<input type="text" class="form-control">
+            				</div>
+            				<div class="form-group">
+            					<label for="origenPasaporte">Origen del pasaporte</label>
+            					<input type="text" class="form-control">
+            				</div>
+            			</form>
+            			<button type="submit" class="btn btn-success">Ingresar adulto</button>
+				</div>
+			</div>
+			<form role="form">
+				<button type="submit" class="btn btn-default">Confirmar Ingreso</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+        

@@ -1,0 +1,11 @@
+<h3>Home</h3>
+
+<div ng-repeat="variableAdmin in admin">
+    <div class="col-sm-4" ng-init="variableAdmin.visible=false">
+        <p>{{$index+1}}</p>
+        <h3>{{variableAdmin.username}}</h3>
+    
+        <a href="#/vuelo/{{variableAdmin.id}}" class="btn btn-success" >Vuelo - {{variableAdmin.id}}</a>
+</div>
+          
+</div>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Reserva / Busqueda de vuelos
+			</h3>
+			<div class="row">
+				<div class="col-md-6">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">
+								Ciudad de Origen
+							</label>
+							<div class="col-sm-10">
+								<select name="lugOrigen" class="form-control" ng-model=reservaVuelo.ciudadOrigenReserva>
+    								<option  ng-repeat="ciudad in listaCiudadesOrigen" value="{{ciudad.codigo}}">{{ciudad.ciudad}}</option>
+    							</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">
+								Ciudad de Destino
+							</label>
+							<div class="col-sm-10">
+								<select name="lugOrigen" class="form-control" ng-model=reservaVuelo.ciudadDestinoReserva>
+    								<option ng-repeat="ciudad in listaCiudadesDestino" value="{{ciudad.codigo}}">{{ciudad.ciudad}}</option>
+    							</select>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal" role="form">
+						
+						<div class="form-group">
+							 
+							<label for="inputEmail3" class="col-sm-2 control-label">
+								Fecha de salida
+							</label>
+							<div class="col-sm-10">
+								<input type="date" ng-model="reservaVuelo.fechaSalidaVueloIda" class="form-control" ng-mouseenter="fechaMinLlegada();generarCodigoIda()" min="{{minDate | date:'yyyy-MM-dd'}}" id="asd">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<form name="myForm" ng-controller="ExampleController">
+  								<label>
+									<input type="checkbox" ng-model="vuelta" name="tipoReserva">
+									Ida y Vuelta
+								</label>
+								</form>
+							</div>
+							<div ng-show="vuelta">
+									<label for="inputfechaLlegada" class="col-sm-2 control-label">
+								    Fecha de regreso
+								    </label>
+									<div class="col-sm-10">
+										<input type="date" ng-model="reservaVuelo.fechaSalidaVueloVuelta" class="form-control" ng-mouseenter="generarCodigoVuelta()" id="inputfechaLlegada" min="{{minLlegadaDate | date:'yyyy-MM-dd'}}">
+									</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">
+								Tipo de reserva
+							</label>
+							<div class="col-sm-10">
+								<select name="tipoReserva" class="form-control" ng-model="reservaVuelo.tipoReserva">
+									<option ng-repeat="tipoReserva in listaTipoReserva" value="{{tipoReserva.codigo}}">{{tipoReserva.tipoReserva}}</option>
+    							</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<h3>Cantidad de personas</h3> 
+							<label for="inputEmail3" class="col-sm-2 control-label">Adultos</label>
+							<div class="col-sm-10">
+								<input ng-model="reservaVuelo.cantidadAdultos" min="1" max="5" ng-click="calcularNroAdultos()" type="number" class="form-control" id="inputEmail3">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Niños</label>
+							<div class="col-sm-10">
+								<input ng-model="reservaVuelo.cantidadNinios" min="0" max="5" ng-click="calcularNroNinios()" type="number" class="form-control" id="inputEmail3">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Bebes(menores de 2 años)</label>
+							<div class="col-sm-10">
+								<input ng-model="reservaVuelo.cantidadBebes" min="0" max="5" ng-click="calcularNroBebes()" type="number" class="form-control" id="inputEmail3">
+							</div>
+						</div>
+					</form>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button id="botonBuscar" style='display:none;' type="submit" ng-model="busqueda" ng-click="busquedaPorParametrosIda();busquedaPorParametrosVuelta()" class="btn btn-default">Buscar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12" id='vuelosIdaEncontrados' style='display:none;'>
+				<h2>	Vuelos de Ida</h2> 
+				<div ng-repeat="variableVuelo1 in vuelos" ng-model="reservaVuelo.idVueloIda">
+	    		    
+				        <table style="width:80%">
+				        <tr>
+				            <td> </td>
+				            <td>Fecha Salida de Vuelo</td> 
+				            <td>Fecha Llegada de Vuelo</td>
+				            <td>Ciudad Origen</td>
+				            <td>Ciudad Destino</td>
+				            <td>Escalas Vuelo</td>
+				        </tr>
+				        <tr>
+				            <td> </td>
+				            <td>{{variableVuelo1.fechaSalidaVuelo}}</td> 
+				            <td>{{variableVuelo1.fechaLlegadaVuelo}}</td>
+				            <td>{{variableVuelo1.origenVuelo}}</td>
+				            <td>{{variableVuelo1.destinoVuelo}}</td>
+				            <td>{{variableVuelo1.escalasVuelo}}</td>
+				        </tr>
+				        </table>
+	         		
+	         		<label>
+						<input type="checkbox">
+						Seleccionar vuelo de ida
+					</label>
+    			</div>
+    			</div>
+    			<div class="col-md-12" id='vuelosVueltaEncontrados' style='display:none;'>
+				<h2>	Vuelos de Vuelta</h2> 
+				<div ng-repeat="variableVuelo2 in vuelo" ng-model="reservaVuelo.idVueloVuelta">
+	    		    
+				        <table style="width:80%">
+				        <tr>
+				            <td> </td>
+				            <td>Fecha Salida de Vuelo</td> 
+				            <td>Fecha Llegada de Vuelo</td>
+				            <td>Ciudad Origen</td>
+				            <td>Ciudad Destino</td>
+				            <td>Escalas Vuelo</td>
+				        </tr>
+				        <tr>
+				            <td> </td>
+				            <td>{{variableVuelo2.fechaSalidaVuelo}}</td> 
+				            <td>{{variableVuelo2.fechaLlegadaVuelo}}</td>
+				            <td>{{variableVuelo2.origenVuelo}}</td>
+				            <td>{{variableVuelo2.destinoVuelo}}</td>
+				            <td>{{variableVuelo2.escalasVuelo}}</td>
+				        </tr>
+				        </table>
+	         			<label>
+							<input type="checkbox">
+							Seleccionar vuelo de vuelta
+						</label>
+	         	</div>
+	         	<button type="submit" ng-click="confirmarBusqueda();buscarReservaAuxi()" class="btn btn-primary">Mostrar Parametros</button>
+	         	<div class="col-md-12" id='confirmarParametros' style='display:none;'>
+					<h2>Parametros de su reserva</h2> 
+					<div ng-repeat="reservaAux1 in reservaAux" ng-model="reservaVuelo.codigoAux">
+		    		        <table style="width:80%">
+					        <tr>
+					            <td> </td>
+					            <td>Fecha Salida de Vuelo</td> 
+					            <td>Fecha Llegada de Vuelo</td>
+					            <td>Ciudad Origen</td>
+					            <td>Ciudad Destino</td>
+					            <td>Cantidad de Personas</td>
+					            <td>Tipo de Reserva<td>
+					            
+					        </tr>
+					        <tr>
+					            <td> </td>
+					            <td>{{reservaAux1.fechaSalidaVueloIda}}</td> 
+					            <td>{{reservaAux1.fechaSalidaVueloVuelta}}</td>
+					            <td>{{reservaAux1.ciudadOrigenReserva}}</td>
+					            <td>{{reservaAux1.ciudadDestinoReserva}}</td>
+					            <td>{{reservaAux1.cantidadPersonas}}</td>
+					            <td>{{reservaAux1.tipoReserva}}</td>
+					        </tr>
+					        </table>
+						<a href="#/reservaaux/{{reservaAux1.id}}" class="btn btn-primary">Confirmar Parametros #/reservaaux/{{reservaAux1.id}}</a>
+			       	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
+

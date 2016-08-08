@@ -1,0 +1,35 @@
+<h3>Vuelos</h3>
+
+<div ng-repeat="variableVuelo in vuelo">
+    <!--<div class="col-sm-6" ng-init="variableVuelo.visible=false">-->
+    <!--<div class="col-sm-6" ng-init="variableVuelo.visible=false">-->
+    <div ng-init="variableVuelo.visible=false">
+        <table style="width:80%">
+        <tr>
+            <td>Id</td>
+            <td>Codigo Vuelo</td>
+            <td>Fecha Salida de Vuelo</td> 
+            <td>Fecha Llegada de Vuelo</td>
+            <td>Ciudad Origen</td>
+            <td>Ciudad Destino</td>
+            <td>Escalas Vuelo</td>
+            <td>Estado Vuelo</td>
+        </tr>
+        <tr>
+            <td>{{$index+1}}</td>
+            <td>{{variableVuelo.codigoVuelo}}</td>
+            <td>{{variableVuelo.fechaSalidaVuelo}}</td> 
+            <td>{{variableVuelo.fechaLlegadaVuelo}}</td>
+            <td>{{variableVuelo.origenVuelo}}</td>
+            <td>{{variableVuelo.destinoVuelo}}</td>
+            <td>{{variableVuelo.escalasVuelo}}</td>
+            <td>{{variableVuelo.estadoVuelo}}</td>
+        </tr>
+        </table>
+       <!-- <p>{{$index+1}}</p>
+        <p>{{variableVuelo.codigoVuelo}} | {{variableVuelo.fechaSalidaVuelo}} | {{variableVuelo.fechaLlegadaVuelo}} | {{variableVuelo.origenVuelo}} | {{variableVuelo.destinoVuelo}} | {{variableVuelo.escalasVuelo}} | {{variableVuelo.estadoVuelo}}<p>-->
+    
+        
+</div>
+          
+</div>

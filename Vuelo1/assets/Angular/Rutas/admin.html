@@ -1,0 +1,19 @@
+<h3>Ingresar Admin</h3>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h2>Ingrese Datos</h2>
+        <form ng-submit="agregarNuevoAdmin()">
+            
+            <div class="form-group">
+                <label for="idusername">Username</label>
+                <input ng-model="nuevoAdmin.username" type="text" class="form-control" id="idusername" placeholder="Ingresa un Username" >
+            </div>
+            <div class="form-group">
+                <label for="idusername">Password</label>
+                <input ng-model="nuevoAdmin.password" type="password" class="form-control" id="idusername" placeholder="Ingresa un Password" >
+            </div>
+            <button class="btn btn-success">Agregar Admin</button>
+        </form>
+    </div>
+</div>

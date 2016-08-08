@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Ingresar datos de las personas
+			</h3>
+			<div class="row" id='vuelosEncontrados' style='display:none;'>
+				<h2>Ingreso de datos de Adultos</h2> 
+				<div ng-repeat="variableVuelo in vuelo">
+	    		    <div ng-init="variableVuelo.visible=false">
+            			<form role="form">
+            				<div class="form-group">
+            					<label for="nombre">Nombre</label>
+            					<input type="text" class="form-control" id="nombreReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="apellido">Apellido</label>
+            					<input type="text" class="form-control" id="apellidoReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="pasaporte">Pasaporte</label>
+            					<input type="text" class="form-control" id="pasaporteReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="origenPasaporte">Origen del pasaporte</label>
+            					<input type="text" class="form-control" id="origenPasaporteReservante">
+            				</div>
+            			</form>
+			        </div>
+				</div>
+			</div>
+			<div class="row" id='vuelosEncontrados' style='display:none;'>
+				<h2>Ingreso de datos de Niños</h2> 
+				<div ng-repeat="variableVuelo in vuelo">
+	    		    <div ng-init="variableVuelo.visible=false">
+            			<form role="form">
+            				<div class="form-group">
+            					<label for="nombre">Nombre</label>
+            					<input type="text" class="form-control" id="nombreReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="apellido">Apellido</label>
+            					<input type="text" class="form-control" id="apellidoReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="pasaporte">Pasaporte</label>
+            					<input type="text" class="form-control" id="pasaporteReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="origenPasaporte">Origen del pasaporte</label>
+            					<input type="text" class="form-control" id="origenPasaporteReservante">
+            				</div>
+            			</form>
+			        </div>
+				</div>
+			</div>
+			<div class="row" id='vuelosEncontrados' style='display:none;'>
+				<h2>Ingreso de datos de Bebes</h2> 
+				<div ng-repeat="variableVuelo in vuelo">
+	    		    <div ng-init="variableVuelo.visible=false">
+            			<form role="form">
+            				<div class="form-group">
+            					<label for="nombre">Nombre</label>
+            					<input type="text" class="form-control" id="nombreReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="apellido">Apellido</label>
+            					<input type="text" class="form-control" id="apellidoReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="pasaporte">Pasaporte</label>
+            					<input type="text" class="form-control" id="pasaporteReservante">
+            				</div>
+            				<div class="form-group">
+            					<label for="origenPasaporte">Origen del pasaporte</label>
+            					<input type="text" class="form-control" id="origenPasaporteReservante">
+            				</div>
+            			</form>
+			        </div>
+				</div>
+			</div>
+			<form role="form">
+				<button type="submit" class="btn btn-default">Confirmar Ingreso</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

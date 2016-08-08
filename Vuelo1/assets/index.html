@@ -1,0 +1,98 @@
+<!DOCTYPE>
+<html>
+
+<!DOCTYPE>
+<html>
+
+<head>
+    <link rel="stylesheet" href="librerias/css/animate.css">
+    <link rel="stylesheet" href="librerias/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
+    
+     <!--     ANGULAR-->
+    <script src="librerias/angular.js"></script>
+    <script src="librerias/jquery.js"></script>
+    <script src="librerias/bootstrap.js"></script>
+
+    <!--     DEPENDENCIAS ANGULAR-->
+    
+    <script src="librerias/angular-ui-router.js"></script>
+    <script src="librerias/angular-animate.js"></script>
+    <script src="librerias/angular-resource.js"></script>
+    <script src="librerias/angular-toastr.min.js"></script>
+    <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+
+    <!--     APLICACION-->
+    <script src="app.js"></script>
+
+    <!--     FACTORIES-->
+    <script src="Angular/Factory/factory.js"></script>
+
+    <!--     CONTROLADORES-->
+    <script src="Angular/Controladores/home.js"></script>
+    <script src="Angular/Controladores/admin.js"></script>
+    <script src="Angular/Controladores/vuelo.js"></script>
+    <script src="Angular/Controladores/vueloadmin.js"></script>
+    <script src="Angular/Controladores/reserva.js"></script>
+    <script src="Angular/Controladores/buscar.js"></script> 
+    <script src="Angular/Controladores/editarvuelo.js"></script> 
+    <script src="Angular/Controladores/reservaaux.js"></script> 
+    <script src="Angular/Controladores/personaaux.js"></script>
+    
+    <head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+</style>
+    
+          
+</head>
+    
+    
+<body ng-app="app">
+    
+ <IMG SRC="http://stuffpoint.com/dragons/image/126031-dragons-ocean-flying-dragon.jpg" WIDTH=100% HEIGHT=170 ALT="FlyingXDragons">   
+    
+   <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/home">FlyingXDragons</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#/home">Home</a></li>
+          <li><a href="#/admin">Admin</a></li>
+          <li><a href="#/vuelo">Vuelos</a></li>
+          <li><a href="#/buscar">Reserva</a></li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    
+<!--<div ui-view class="container animated fadeInDownBig"></div>
+        </div> -->   
+  
+   
+    
+<div ui-view></div>
+       
+    
+</body>
+    
+</html>
